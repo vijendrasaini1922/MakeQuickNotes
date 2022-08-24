@@ -2,20 +2,21 @@ package com.vijay.takenotes
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.vijay.takenotes.Notes.Note
 import com.vijay.takenotes.ViewModel.NoteViewModel
 import com.vijay.takenotes.databinding.ActivityAddEditNoteBinding
 import java.text.SimpleDateFormat
 import java.util.*
+
 
 class AddEditNoteActivity : AppCompatActivity() {
     private lateinit var binding:ActivityAddEditNoteBinding
@@ -30,6 +31,11 @@ class AddEditNoteActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_add_edit_note)
 
+        // calling the action bar
+        val actionBar: ActionBar? = supportActionBar
+        // showing the back button in action bar
+        actionBar?.setDisplayHomeAsUpEnabled(true);
+
         // Creating View Model
         createViewModel()
 
@@ -40,6 +46,17 @@ class AddEditNoteActivity : AppCompatActivity() {
 
         checkForNewNote()
         onClickAddButton(btn)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                startActivity(Intent(this@AddEditNoteActivity, MainActivity::class.java))
+                this.finish()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun createViewModel() {
