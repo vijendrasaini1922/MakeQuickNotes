@@ -24,24 +24,18 @@ class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInt
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
+        // Binding elements
         recyclerView = binding.recyclerView
         floatingButton = binding.floatingButton
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        val recyclerViewAdapter = NoteRecyclerViewAdapter(this, this, this)
-        recyclerView.adapter = recyclerViewAdapter
 
-        viewModel = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory
-            .getInstance(application)).get(NoteViewModel::class.java)
+        // View Model Creating function
+        createViewModel()
 
-        viewModel.allNote.observe(this, Observer { list->
-            list?.let {
-                recyclerViewAdapter.updateList(it)
-            }
-        })
-        floatingButton.setOnClickListener{
-            startActivity(Intent(this, AddEditNoteActivity::class.java ))
-            this.finish()
-        }
+        // Model Observer
+        viewModelObserver()
+
+        // Floating button action on click
+        onClickFloatingButton()
     }
 
     override fun onDeleteIconClick(note: Note) {
@@ -56,5 +50,28 @@ class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInt
         intent.putExtra("noteID", note.id)
         startActivity(intent)
         this.finish()
+    }
+
+    private fun createViewModel(){
+        viewModel = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory
+            .getInstance(application)).get(NoteViewModel::class.java)
+    }
+
+    private fun viewModelObserver(){
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        val recyclerViewAdapter = NoteRecyclerViewAdapter(this, this, this)
+        recyclerView.adapter = recyclerViewAdapter
+        viewModel.allNote.observe(this, Observer { list->
+            list?.let {
+                recyclerViewAdapter.updateList(it)
+            }
+        })
+    }
+
+    private fun onClickFloatingButton(){
+        floatingButton.setOnClickListener{
+            startActivity(Intent(this, AddEditNoteActivity::class.java ))
+            this.finish()
+        }
     }
 }

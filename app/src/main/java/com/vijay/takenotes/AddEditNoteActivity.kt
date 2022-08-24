@@ -97,8 +97,8 @@ class AddEditNoteActivity : AppCompatActivity() {
                     updateNote.id = noteID
 
                     viewModel.updateNote(updateNote)
-//                    Toast.makeText(this, "Content Updated", Toast.LENGTH_SHORT).show()
-                    Toast.makeText(this, "Content Updated ID : " + noteID, Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(this, "Content Updated", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, noteTitle + "Note Updated", Toast.LENGTH_SHORT).show()
                 } else{
                     // Will give Title name first 16 letters of description
                 }

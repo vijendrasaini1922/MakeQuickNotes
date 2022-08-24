@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/navy_blue"
+    android:background="@color/add_edit_note_theme"
     tools:context=".AddEditNoteActivity">
 
     <EditText
@@ -15,7 +15,7 @@
         android:layout_margin="10dp"
         android:singleLine="true"
         android:hint="Enter Note Title"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:layout_alignParentTop="true"
         android:textColorHint="@color/light_white"/>
 
@@ -27,7 +27,7 @@
         android:hint="Enter Note Description"
         android:gravity="start"
         android:inputType="textMultiLine"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:layout_below="@+id/editNoteTitle"
         android:layout_above="@+id/addButton"
         android:textColorHint="@color/light_white"/>
@@ -38,7 +38,7 @@
         android:id="@+id/addButton"
         android:layout_alignParentBottom="true"
         android:text="Add Content"
-        android:backgroundTint="@color/teal_700"
+        android:backgroundTint="@color/purple_500"
         android:layout_margin="20dp"
         android:padding="5dp"/>
 

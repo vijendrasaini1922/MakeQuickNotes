@@ -23,7 +23,7 @@
             android:layout_margin="2dp"
             android:padding="3dp"
             android:text="Note Title"
-            android:textSize="16sp" />
+            android:textSize="20sp" />
 
         <ImageView
             android:id="@+id/noteDelete"
