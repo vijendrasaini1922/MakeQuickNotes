@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -113,8 +114,6 @@ class AddEditNoteActivity : AppCompatActivity() {
                 }
             }
             startActivity(Intent(this, MainActivity::class.java))
-            this.finish()
         }
     }
-
 }

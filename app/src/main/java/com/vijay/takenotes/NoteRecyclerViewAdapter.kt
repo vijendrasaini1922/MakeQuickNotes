@@ -1,5 +1,6 @@
 package com.vijay.takenotes
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.media.Image
 import android.view.LayoutInflater
@@ -13,7 +14,7 @@ import com.vijay.takenotes.Notes.Note
 class NoteRecyclerViewAdapter(
     val ctx: Context,
     val noteClickInterface: NoteClickInterface,
-    val noteClickDeleteInterface: NoteClickDeleteInterface
+    val noteClickDeleteInterface: NoteClickDeleteInterface,
     ): RecyclerView.Adapter<NoteRecyclerViewAdapter.ViewHolder>() {
 
         val allNotes = ArrayList<Note>()
@@ -22,6 +23,7 @@ class NoteRecyclerViewAdapter(
             val noteTitleView = itemView.findViewById<TextView>(R.id.noteTitle)
             val noteTimeView = itemView.findViewById<TextView>(R.id.noteTime)
             val noteDeleteImage = itemView.findViewById<ImageView>(R.id.noteDelete)
+            val noteShareImage = itemView.findViewById<ImageView>(R.id.noteShare)
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -46,6 +48,7 @@ class NoteRecyclerViewAdapter(
         return allNotes.size
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun updateList(newList: List<Note>){
         allNotes.clear()
         allNotes.addAll(newList)

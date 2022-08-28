@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/deletedLastMonth"
+        android:title="Deleted Notes"
+        android:tooltipText="Deleted Notes"
+        android:icon="@drawable/trash"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/settings"
+        android:title="Setting" />
+
+    <item
+        android:id="@+id/shareButton"
+        android:icon="@drawable/ic_share"
+        android:title="SHARE"
+        android:tooltipText="Share Note"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/aboutPage"
+        android:title="About"/>
+
+    <item
+        android:id="@+id/whatsNew"
+        android:title="Whats New"/>
+
+    <item
+        android:id="@+id/nextVersion"
+        android:title="Upcoming Version"/>
+
+</menu>

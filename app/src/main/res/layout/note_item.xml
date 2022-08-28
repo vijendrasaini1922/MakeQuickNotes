@@ -32,8 +32,21 @@
             android:src="@drawable/ic_delete"
             android:layout_margin="5dp"
             android:padding="5dp"
+            android:tooltipText="Delete Note"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_share"
+            android:layout_toStartOf="@id/noteDelete"
+            android:layout_toEndOf="@id/noteTitle"
+            android:layout_centerVertical="true"
+            android:layout_margin="5dp"
+            android:padding="5dp"
+            android:id="@+id/noteShare"/>
+
 
         <TextView
             android:id="@+id/noteTime"

@@ -1,0 +1,30 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="@string/messages_header">
+        <EditTextPreference
+            app:key="signature"
+            app:title="@string/signature_title"
+            app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/sync_header">
+        <SwitchPreferenceCompat
+            app:key="syncnote"
+            app:enabled="true"
+            app:title="Sync Notes"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Theme">
+        <SwitchPreference
+            app:key="theme"
+            app:title="Dark Theme"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Store Deleted">
+        <SwitchPreference
+            app:key="monthly"
+            app:title="Recycle Bin"
+            app:summary="On Enable Deleted Notes will be stored for 1 Month Duration."/>
+    </PreferenceCategory>
+
+</PreferenceScreen>
