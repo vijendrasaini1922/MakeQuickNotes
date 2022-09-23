@@ -2,6 +2,7 @@ package com.vijay.takenotes
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Button
@@ -12,6 +13,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.preference.PreferenceManager
 import com.vijay.takenotes.Notes.Note
 import com.vijay.takenotes.ViewModel.NoteViewModel
 import com.vijay.takenotes.databinding.ActivityAddEditNoteBinding
@@ -25,17 +27,22 @@ class AddEditNoteActivity : AppCompatActivity() {
     private lateinit var btn:Button
     private lateinit var noteTitleEdit:EditText
     private lateinit var noteDescriptionEdit:EditText
+    private lateinit var preferences:SharedPreferences
     var noteID = -1
 
     @SuppressLint("SimpleDateFormat", "SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_add_edit_note)
+        preferences = PreferenceManager.getDefaultSharedPreferences(this)
 
         // calling the action bar
         val actionBar: ActionBar? = supportActionBar
         // showing the back button in action bar
         actionBar?.setDisplayHomeAsUpEnabled(true);
+
+        // Adding Signature
+        signatureAdd()
 
         // Creating View Model
         createViewModel()
@@ -48,6 +55,17 @@ class AddEditNoteActivity : AppCompatActivity() {
         checkForNewNote()
         onClickAddButton(btn)
     }
+
+        private fun signatureAdd(){
+            val sign = preferences.getString("signature", "No Owner")
+            val sign_text = binding.sign
+            if(sign == ""){
+                sign_text.setText("Owner : No Owner")
+            }
+            else{
+                sign_text.setText("Owner : " + sign)
+            }
+        }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {

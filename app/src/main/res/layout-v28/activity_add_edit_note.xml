@@ -27,25 +27,29 @@
         android:id="@+id/editNoteDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:hint="Enter Note Description"
+        android:layout_above="@+id/sign"
+        android:layout_below="@+id/editNoteTitle"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:gravity="start"
+        android:hint="Enter Note Description"
         android:inputType="textMultiLine"
         android:textColor="@color/black"
-        android:layout_below="@+id/editNoteTitle"
-        android:layout_above="@+id/sign"
-        android:textColorHint="@color/light_white"/>
+        android:textColorHint="@color/light_white" />
 
     <TextView
         android:id="@+id/sign"
+        android:key="signature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textStyle="bold|italic"
-        android:layout_alignParentRight="true"
         android:layout_above="@id/addButton"
         android:layout_marginEnd="30dp"
+        android:layout_alignParentRight="true"
+        android:text="No Signatures"
+        android:textStyle="italic"
         android:textFontWeight="400"
-        android:text="No Signature"
         android:textSize="12sp"/>
 
     <Button
